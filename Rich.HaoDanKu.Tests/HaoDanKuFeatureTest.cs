@@ -9,7 +9,7 @@ using Xunit;
 
 namespace Rich.HaoDanKu.Tests
 {
-    public class HaoDanKuFeatureTest
+    public class HaoDanKuFeatureTest : HaoDankuTestBase
     {
 
         private readonly IHaoDanKuClient _client;
@@ -34,11 +34,11 @@ namespace Rich.HaoDanKu.Tests
         {
             var model = new SignRedPackGoodsQueryModel()
             {
-                Keyword="儿童"
+                Keyword = "儿童"
             };
             var request = new SignRedPackGoodsRequest();
             request.SetQueryModel(model);
-            var response = await _client.ExecuteAsync(request, _options.Value);
+            var response = await _client.ExecuteAsync(request, options);
             Assert.True(response.StatusCode == 200 && response.Data != null);
         }
         /// <summary>
@@ -49,11 +49,11 @@ namespace Rich.HaoDanKu.Tests
         {
             var model = new GetJdItemlistQueryModel()
             {
-                
+
             };
             var request = new GetJdItemlistRequest();
             request.SetQueryModel(model);
-            var response = await _client.ExecuteAsync(request, _options.Value);
+            var response = await _client.ExecuteAsync(request, options);
             Assert.True(response.StatusCode == 200 && response.Data != null);
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Rich.HaoDanKu.Tests
             };
             var request = new GetPddItemlistRequest();
             request.SetQueryModel(model);
-            var response = await _client.ExecuteAsync(request, _options.Value);
+            var response = await _client.ExecuteAsync(request, options);
             Assert.True(response.StatusCode == 200 && response.Data != null);
         }
         /// <summary>
@@ -83,7 +83,7 @@ namespace Rich.HaoDanKu.Tests
             };
             var request = new GetBuyreturnItemsRequest();
             request.SetQueryModel(model);
-            var response = await _client.ExecuteAsync(request, _options.Value);
+            var response = await _client.ExecuteAsync(request, options);
             Assert.True(response.StatusCode == 200 && response.Data != null);
         }
         /// <summary>
@@ -98,7 +98,7 @@ namespace Rich.HaoDanKu.Tests
             };
             var request = new GetCurrentCommissionRequest();
             request.SetQueryModel(model);
-            var response = await _client.ExecuteAsync(request, _options.Value);
+            var response = await _client.ExecuteAsync(request, options);
             Assert.True(response.StatusCode == 200 && response.Data != null);
         }
         /// <summary>
@@ -113,7 +113,7 @@ namespace Rich.HaoDanKu.Tests
             };
             var request = new GetOrienteeringitemsRequest();
             request.SetQueryModel(model);
-            var response = await _client.ExecuteAsync(request, _options.Value);
+            var response = await _client.ExecuteAsync(request, options);
             Assert.True(response.StatusCode == 200 && response.Data != null);
         }
         /// <summary>
@@ -128,7 +128,7 @@ namespace Rich.HaoDanKu.Tests
             };
             var request = new GetHighitemsRequest();
             request.SetQueryModel(model);
-            var response = await _client.ExecuteAsync(request, _options.Value);
+            var response = await _client.ExecuteAsync(request, options);
             Assert.True(response.StatusCode == 200 && response.Data != null);
         }
         /// <summary>
@@ -143,7 +143,7 @@ namespace Rich.HaoDanKu.Tests
             };
             var request = new GetSalutationDataRequest();
             request.SetQueryModel(model);
-            var response = await _client.ExecuteAsync(request, _options.Value);
+            var response = await _client.ExecuteAsync(request, options);
             Assert.True(response.StatusCode == 200 && response.Data != null);
         }
         /// <summary>
@@ -158,7 +158,7 @@ namespace Rich.HaoDanKu.Tests
             };
             var request = new LowPricePinkageDataRequest();
             request.SetQueryModel(model);
-            var response = await _client.ExecuteAsync(request, _options.Value);
+            var response = await _client.ExecuteAsync(request, options);
             Assert.True(response.StatusCode == 200 && response.Data != null);
         }
         /// <summary>
@@ -173,7 +173,7 @@ namespace Rich.HaoDanKu.Tests
             };
             var request = new DouyinItemsRequest();
             request.SetQueryModel(model);
-            var response = await _client.ExecuteAsync(request, _options.Value);
+            var response = await _client.ExecuteAsync(request, options);
             Assert.True(response.StatusCode == 200 && response.Data != null);
         }
         /// <summary>
@@ -188,7 +188,7 @@ namespace Rich.HaoDanKu.Tests
             };
             var request = new GetFreeShippingDataRequest();
             request.SetQueryModel(model);
-            var response = await _client.ExecuteAsync(request, _options.Value);
+            var response = await _client.ExecuteAsync(request, options);
             Assert.True(response.StatusCode == 200 && response.Data != null);
         }
         /// <summary>
@@ -203,7 +203,7 @@ namespace Rich.HaoDanKu.Tests
             };
             var request = new GetTrillDataRequest();
             request.SetQueryModel(model);
-            var response = await _client.ExecuteAsync(request, _options.Value);
+            var response = await _client.ExecuteAsync(request, options);
             Assert.True(response.StatusCode == 200 && response.Data != null);
         }
         /// <summary>
@@ -218,7 +218,7 @@ namespace Rich.HaoDanKu.Tests
             };
             var request = new SalesListRequest();
             request.SetQueryModel(model);
-            var response = await _client.ExecuteAsync(request, _options.Value);
+            var response = await _client.ExecuteAsync(request, options);
             Assert.True(response.StatusCode == 200 && response.Data != null);
         }
         /// <summary>
@@ -233,7 +233,7 @@ namespace Rich.HaoDanKu.Tests
             };
             var request = new GetDeserveItemRequest();
             request.SetQueryModel(model);
-            var response = await _client.ExecuteAsync(request, _options.Value);
+            var response = await _client.ExecuteAsync(request, options);
             Assert.True(response.StatusCode == 200 && response.Data != null);
         }
         /// <summary>
@@ -248,7 +248,7 @@ namespace Rich.HaoDanKu.Tests
             };
             var request = new GetSubjectRequest();
             request.SetQueryModel(model);
-            var response = await _client.ExecuteAsync(request, _options.Value);
+            var response = await _client.ExecuteAsync(request, options);
             Assert.True(response.StatusCode == 200 && response.Data != null);
         }
         /// <summary>
@@ -263,7 +263,7 @@ namespace Rich.HaoDanKu.Tests
             };
             var request = new ExcellentEditorRequest();
             request.SetQueryModel(model);
-            var response = await _client.ExecuteAsync(request, _options.Value);
+            var response = await _client.ExecuteAsync(request, options);
             Assert.True(response.StatusCode == 200 && response.Data != null);
         }
         /// <summary>
@@ -278,7 +278,7 @@ namespace Rich.HaoDanKu.Tests
             };
             var request = new GetCollectItemsRequest();
             request.SetQueryModel(model);
-            var response = await _client.ExecuteAsync(request, _options.Value);
+            var response = await _client.ExecuteAsync(request, options);
             Assert.True(response.StatusCode == 200 && response.Data != null);
         }
         /// <summary>
@@ -293,7 +293,7 @@ namespace Rich.HaoDanKu.Tests
             };
             var request = new FastbuyRequest();
             request.SetQueryModel(model);
-            var response = await _client.ExecuteAsync(request, _options.Value);
+            var response = await _client.ExecuteAsync(request, options);
             Assert.True(response.StatusCode == 200 && response.Data != null);
         }
         /// <summary>
@@ -308,7 +308,7 @@ namespace Rich.HaoDanKu.Tests
             };
             var request = new BrandinfoRequest();
             request.SetQueryModel(model);
-            var response = await _client.ExecuteAsync(request, _options.Value);
+            var response = await _client.ExecuteAsync(request, options);
             Assert.True(response.StatusCode == 200 && response.Data != null);
         }
         /// <summary>
@@ -323,7 +323,7 @@ namespace Rich.HaoDanKu.Tests
             };
             var request = new SinglebrandRequest();
             request.SetQueryModel(model);
-            var response = await _client.ExecuteAsync(request, _options.Value);
+            var response = await _client.ExecuteAsync(request, options);
             Assert.True(response.StatusCode == 200 && response.Data != null);
         }
         /// <summary>
@@ -338,7 +338,7 @@ namespace Rich.HaoDanKu.Tests
             };
             var request = new BrandSubjectitemsRequest();
             request.SetQueryModel(model);
-            var response = await _client.ExecuteAsync(request, _options.Value);
+            var response = await _client.ExecuteAsync(request, options);
             Assert.True(response.StatusCode == 200 && response.Data != null);
         }
         /// <summary>
@@ -353,7 +353,7 @@ namespace Rich.HaoDanKu.Tests
             };
             var request = new SelectedItemRequest();
             request.SetQueryModel(model);
-            var response = await _client.ExecuteAsync(request, _options.Value);
+            var response = await _client.ExecuteAsync(request, options);
             Assert.True(response.StatusCode == 200 && response.Data != null);
         }
 

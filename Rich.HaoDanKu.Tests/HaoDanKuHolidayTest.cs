@@ -9,7 +9,7 @@ using Xunit;
 
 namespace Rich.HaoDanKu.Tests
 {
-    public class HaoDanKuHolidayTest
+    public class HaoDanKuHolidayTest : HaoDankuTestBase
     {
 
         private readonly IHaoDanKuClient _client;
@@ -38,7 +38,7 @@ namespace Rich.HaoDanKu.Tests
             };
             var request = new GetActivityDataRequest();
             request.SetQueryModel(model);
-            var response = await _client.ExecuteAsync(request, _options.Value);
+            var response = await _client.ExecuteAsync(request, options);
             Assert.True(response.StatusCode == 200 && response.Data != null);
         }
     }

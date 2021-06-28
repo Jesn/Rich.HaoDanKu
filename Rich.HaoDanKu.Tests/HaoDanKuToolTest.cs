@@ -9,7 +9,7 @@ using Xunit;
 
 namespace Rich.HaoDanKu.Tests
 {
-    public class HaoDanKuToolTest
+    public class HaoDanKuToolTest : HaoDankuTestBase
     {
 
         private readonly IHaoDanKuClient _client;
@@ -38,7 +38,7 @@ namespace Rich.HaoDanKu.Tests
             };
             var request = new GetJditemsLinkRequest();
             request.SetBodyModel(model);
-            var response = await _client.ExecuteAsync(request, _options.Value);
+            var response = await _client.ExecuteAsync(request, options);
             Assert.True(response.StatusCode == 200 && response.Data != null);
         }
         /// <summary>
@@ -53,7 +53,7 @@ namespace Rich.HaoDanKu.Tests
             };
             var request = new GetPdditemsLinkRequest();
             request.SetBodyModel(model);
-            var response = await _client.ExecuteAsync(request, _options.Value);
+            var response = await _client.ExecuteAsync(request, options);
             Assert.True(response.StatusCode == 200 && response.Data != null);
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Rich.HaoDanKu.Tests
             };
             var request = new GetBuyresultUrlRequest();
             request.SetBodyModel(model);
-            var response = await _client.ExecuteAsync(request, _options.Value);
+            var response = await _client.ExecuteAsync(request, options);
             Assert.True(response.StatusCode == 200 && response.Data != null);
         }
         /// <summary>
@@ -83,7 +83,7 @@ namespace Rich.HaoDanKu.Tests
             };
             var request = new CreateConferenceCodeRequest();
             request.SetBodyModel(model);
-            var response = await _client.ExecuteAsync(request, _options.Value);
+            var response = await _client.ExecuteAsync(request, options);
             Assert.True(response.StatusCode == 200 && response.Data != null);
         }
         /// <summary>
@@ -98,7 +98,7 @@ namespace Rich.HaoDanKu.Tests
             };
             var request = new ShopConvertCodeRequest();
             request.SetBodyModel(model);
-            var response = await _client.ExecuteAsync(request, _options.Value);
+            var response = await _client.ExecuteAsync(request, options);
             Assert.True(response.StatusCode == 200 && response.Data != null);
         }
     }

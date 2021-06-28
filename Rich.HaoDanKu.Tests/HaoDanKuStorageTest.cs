@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Rich.HaoDanKu.Domain;
@@ -9,22 +10,8 @@ using Xunit;
 
 namespace Rich.HaoDanKu.Tests
 {
-    public class HaoDanKuStorageTest
+    public class HaoDanKuStorageTest: HaoDankuTestBase
     {
-
-        private readonly IHaoDanKuClient _client;
-        private IOptions<HaoDanKuOptions> _options;
-
-        public HaoDanKuStorageTest()
-        {
-            IServiceCollection services = new ServiceCollection();
-            services.AddHaoDanKu();
-
-            IServiceProvider provider = services.BuildServiceProvider();
-
-            _client = provider.GetService<IHaoDanKuClient>();
-            _options = provider.GetService<IOptions<HaoDanKuOptions>>();
-        }
 
         /// <summary>
         /// 商品列表页API
@@ -32,13 +19,14 @@ namespace Rich.HaoDanKu.Tests
         [Fact]
         public async Task ItemlistTest()
         {
+         
             var model = new ItemlistQueryModel()
             {
 
             };
             var request = new ItemlistRequest();
             request.SetQueryModel(model);
-            var response = await _client.ExecuteAsync(request, _options.Value);
+            var response = await _client.ExecuteAsync(request, options);
             Assert.True(response.StatusCode == 200 && response.Data != null);
         }
         /// <summary>
@@ -53,7 +41,7 @@ namespace Rich.HaoDanKu.Tests
             };
             var request = new UpdateItemRequest();
             request.SetQueryModel(model);
-            var response = await _client.ExecuteAsync(request, _options.Value);
+            var response = await _client.ExecuteAsync(request, options);
             Assert.True(response.StatusCode == 200 && response.Data != null);
         }
         /// <summary>
@@ -68,7 +56,7 @@ namespace Rich.HaoDanKu.Tests
             };
             var request = new TimingItemsRequest();
             request.SetQueryModel(model);
-            var response = await _client.ExecuteAsync(request, _options.Value);
+            var response = await _client.ExecuteAsync(request, options);
             Assert.True(response.StatusCode == 200 && response.Data != null);
         }
         /// <summary>
@@ -83,7 +71,7 @@ namespace Rich.HaoDanKu.Tests
             };
             var request = new GetDownItemsRequest();
             request.SetQueryModel(model);
-            var response = await _client.ExecuteAsync(request, _options.Value);
+            var response = await _client.ExecuteAsync(request, options);
             Assert.True(response.StatusCode == 200 && response.Data != null);
         }
         /// <summary>
@@ -98,7 +86,7 @@ namespace Rich.HaoDanKu.Tests
             };
             var request = new BlacklistRequest();
             request.SetQueryModel(model);
-            var response = await _client.ExecuteAsync(request, _options.Value);
+            var response = await _client.ExecuteAsync(request, options);
             Assert.True(response.StatusCode == 200 && response.Data != null);
         }
     }

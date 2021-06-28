@@ -8,13 +8,10 @@ namespace Rich.HaoDanKu
 {
     public class HaoDanKuOptions
     {
-        public string Domain { get; set; }
         public string AppKey { get; set; }
 
         public string Format = "json";
 
         public string Charset = "utf-8";
-
-
     }
 }
