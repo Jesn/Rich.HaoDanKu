@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rich.HaoDanKu", "Rich.HaoDanKu\Rich.HaoDanKu.csproj", "{D89765CA-5372-46FB-8BCC-62E5D479EC81}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rich.HaoDanKu.Tests", "Rich.HaoDanKu.Tests\Rich.HaoDanKu.Tests.csproj", "{4A2EFB89-2FFE-408D-9016-2575F0827CDC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rich.Docs", "Rich.Docs", "{05D5A4E1-90A3-48F8-BE98-9688532A2132}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D89765CA-5372-46FB-8BCC-62E5D479EC81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D89765CA-5372-46FB-8BCC-62E5D479EC81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D89765CA-5372-46FB-8BCC-62E5D479EC81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D89765CA-5372-46FB-8BCC-62E5D479EC81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A2EFB89-2FFE-408D-9016-2575F0827CDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A2EFB89-2FFE-408D-9016-2575F0827CDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A2EFB89-2FFE-408D-9016-2575F0827CDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A2EFB89-2FFE-408D-9016-2575F0827CDC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1E038F7B-60B0-41F7-82A7-D4E6B9FD7120}
+	EndGlobalSection
+EndGlobal
