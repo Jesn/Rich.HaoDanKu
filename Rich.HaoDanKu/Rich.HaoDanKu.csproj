@@ -2,19 +2,29 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.0-alpha</Version>
+    <Description>.NET 好单库SDK</Description>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Authors>Darren</Authors>
+    <RepositoryUrl>https://github.com/Jesn/Rich.HaoDanKu</RepositoryUrl>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="Const\**" />
-    <EmbeddedResource Remove="Const\**" />
-    <None Remove="Const\**" />
-  </ItemGroup>
-
+  <Import Project="../common.props" />
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Http" Version="5.0.0" />
+    <PackageReference Include="SourceLink.Create.CommandLine" Version="2.8.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+    <ItemGroup>
+    <None Include="haodanku.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
-  <ItemGroup>
+  <!--<ItemGroup>
     <Folder Include="Domain\Open\" />
     <Folder Include="Domain\Search\" />
     <Folder Include="Domain\Storage\" />
@@ -30,6 +40,6 @@
     <Folder Include="Response\Search\" />
     <Folder Include="Response\Storage\" />
     <Folder Include="Response\Tool\" />
-  </ItemGroup>
+  </ItemGroup>-->
 
 </Project>

@@ -1,0 +1,27 @@
+<Project>
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Version>1.0.0-alpha</Version>
+    <authors>Darren</authors>
+    <owners>Darren</owners>
+    <description>.NET 好单库SDK</description>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <PackageIcon>haodanku.png</PackageIcon>
+    <PackageProjectUrl>https://github.com/Jesn/Rich.HaoDanKu</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryType>Github</RepositoryType>
+    <RepositoryUrl>https://github.com/Jesn/Rich.HaoDanKu</RepositoryUrl>
+    <PackageReadmeFile>../README.md</PackageReadmeFile>
+    <copyright>Copyright 2021</copyright>
+    <tags>.NET5 好单库 好单库SDK</tags>
+    
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="SourceLink.Create.CommandLine" Version="2.8.3" PrivateAssets="All" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="../README.md" Pack="true" PackagePath="\"></None>
+  </ItemGroup>
+  
+</Project>
