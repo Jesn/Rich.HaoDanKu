@@ -11,12 +11,12 @@ namespace Rich.HaoDanKu.Domain
         /// 京东商品链接（*必要）
         /// </summary>
         [JsonPropertyName("material_id")]
-        public int MaterialId { get; set; }
+        public long MaterialId { get; set; }
         /// <summary>
         /// 目标推客的联盟ID（*必要）
         /// </summary>
         [JsonPropertyName("union_id")]
-        public int UnionId { get; set; }
+        public long UnionId { get; set; }
         /// <summary>
         /// 优惠券链接
         /// </summary>
