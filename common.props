@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <LangVersion>latest</LangVersion>
-    <Version>1.0.0-alpha</Version>
+    <Version>1.0.3-alpha</Version>
     <authors>Darren</authors>
     <owners>Darren</owners>
     <description>.NET 好单库SDK</description>

@@ -9,7 +9,7 @@ namespace Rich.HaoDanKu.Response
     public class GetJditemsLinkResponse: HaoDanKuResponse
     {
         [JsonPropertyName("data")]
-        public List<GetJditemsLinkData > Data { get; set; }
+        public GetJditemsLinkData Data { get; set; }
     }
 
     public class GetJditemsLinkData

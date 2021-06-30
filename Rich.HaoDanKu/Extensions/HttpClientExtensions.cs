@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using Rich.HaoDanKu.Parser;
+using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -37,7 +37,7 @@ namespace Rich.HaoDanKu.Extensions
                     if (url.Contains("?"))
                     {
                         var txtParams = ConvertToDictionary(queryModel);
-                        if (txtParams.Count>0)
+                        if (txtParams.Count > 0)
                         {
                             url += "&" + Utility.BuildQuery(txtParams);
                         }
@@ -45,7 +45,7 @@ namespace Rich.HaoDanKu.Extensions
                     else
                     {
                         var txtParams = ConvertToDictionary(queryModel);
-                        if (txtParams.Count>0)
+                        if (txtParams.Count > 0)
                         {
                             url += "?" + Utility.BuildQuery(txtParams);
                         }
@@ -83,24 +83,52 @@ namespace Rich.HaoDanKu.Extensions
                 throw new HaoDanKuException("request.BodyModel is null!");
             }
 
-            var content = JsonSerializer.Serialize(bodyModel, bodyModel.GetType(), jsonSerializerOptions);
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            var json = System.Text.Json.JsonSerializer.Serialize(bodyModel, bodyModel.GetType(), jsonSerializerOptions);
+            var obj = JObject.Parse(json);
 
-            using (var reqContent = new StringContent(content, Encoding.UTF8, "application/json"))
-            using (var resp = await client.PostAsync(url, reqContent))
-            using (var respContent = resp.Content)
+            if (options.Format == FormatEnum.FormData)
             {
-                var body = await respContent.ReadAsStringAsync();
-                var statusCode = (int)resp.StatusCode;
+                var multipartFormDataContent = new MultipartFormDataContent();
+                multipartFormDataContent.Add(new StringContent(options.AppKey), "apikey");
+                foreach (var item in obj.Properties())
+                {
+                    if (string.IsNullOrEmpty(item.Value.ToString()))
+                    {
+                        continue;
+                    }
+                    multipartFormDataContent.Add(new StringContent(item.Value.ToString()), item.Name);
+                }
+                var responseV1 = await client.PostAsync(url, multipartFormDataContent);
+                using (var respContent = responseV1.Content)
+                {
+                    var body = await respContent.ReadAsStringAsync();
+                    var statusCode = (int)responseV1.StatusCode;
 
-                return (body, statusCode);
+                    return (body, statusCode);
+                }
+            }
+            else
+            {
+                obj.Add("apikey", options.AppKey);
+                var content = Newtonsoft.Json.JsonConvert.SerializeObject(obj);
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                using (var reqContent = new StringContent(content, Encoding.UTF8, "application/json"))
+                using (var resp = await client.PostAsync(url, reqContent))
+                using (var respContent = resp.Content)
+                {
+                    var body = await respContent.ReadAsStringAsync();
+                    var statusCode = (int)resp.StatusCode;
+
+                    return (body, statusCode);
+                }
             }
         }
 
         private static IDictionary<string, object> ConvertToDictionary(HaoDanKuObject obj)
         {
-            var str = JsonSerializer.Serialize(obj, obj.GetType(), jsonSerializerOptions);
-            return JsonSerializer.Deserialize<IDictionary<string, object>>(str, jsonSerializerOptions);
+            var str = System.Text.Json.JsonSerializer.Serialize(obj, obj.GetType(), jsonSerializerOptions);
+            return System.Text.Json.JsonSerializer.Deserialize<IDictionary<string, object>>(str, jsonSerializerOptions);
         }
 
     }

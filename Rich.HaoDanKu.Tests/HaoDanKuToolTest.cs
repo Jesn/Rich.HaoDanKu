@@ -34,8 +34,11 @@ namespace Rich.HaoDanKu.Tests
         {
             var model = new GetJditemsLinkQueryModel()
             {
-
+              
             };
+
+            options.Format = Parser.FormatEnum.FormData;
+
             var request = new GetJditemsLinkRequest();
             request.SetBodyModel(model);
             var response = await _client.ExecuteAsync(request, options);
@@ -49,7 +52,7 @@ namespace Rich.HaoDanKu.Tests
         {
             var model = new GetPdditemsLinkQueryModel()
             {
-
+               
             };
             var request = new GetPdditemsLinkRequest();
             request.SetBodyModel(model);

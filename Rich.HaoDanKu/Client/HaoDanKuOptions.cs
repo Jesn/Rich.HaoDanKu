@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rich.HaoDanKu.Parser;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace Rich.HaoDanKu
     {
         public string AppKey { get; set; }
 
-        public string Format = "json";
+        public FormatEnum Format = FormatEnum.JSON;
 
         public string Charset = "utf-8";
     }
