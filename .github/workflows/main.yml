@@ -1,4 +1,4 @@
-name: .NET
+name: ".NET"
 on:
   push:
     branches: [ main ]
@@ -19,7 +19,7 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
-    - uses: brandedoutcast/publish-nuget@v2.5.5
+    - uses: rohith/publish-nuget@v2
     - name: Publish NuGet
       with:
         PROJECT_FILE_PATH: .\Rich.HaoDanKu\Rich.HaoDanKu.csproj
