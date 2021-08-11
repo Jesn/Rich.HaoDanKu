@@ -25,6 +25,6 @@ jobs:
     - name: Publish NuGet
       uses: brandedoutcast/publish-nuget@v2.5.5
       with:
-        PROJECT_FILE_PATH:  /home/runner/work/Rich.HaoDanKu/Rich.HaoDanKu/Rich.HaoDanKu/Rich.HaoDanKu.csproj
-        VERSION_FILE_PATH: .\common.props
+        PROJECT_FILE_PATH: ./Rich.HaoDanKu/Rich.HaoDanKu/Rich.HaoDanKu/Rich.HaoDanKu.csproj
+        VERSION_FILE_PATH: ./Rich.HaoDanKu/Rich.HaoDanKu/common.props
         NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
