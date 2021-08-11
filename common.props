@@ -12,7 +12,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryType>Github</RepositoryType>
     <RepositoryUrl>https://github.com/Jesn/Rich.HaoDanKu</RepositoryUrl>
-    <PackageReadmeFile>../README.md</PackageReadmeFile>
+    <PackageReadmeFile>./README.md</PackageReadmeFile>
     <copyright>Copyright 2021</copyright>
     <tags>.NET5 好单库 好单库SDK</tags>
     
