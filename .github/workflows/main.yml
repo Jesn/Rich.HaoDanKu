@@ -23,7 +23,7 @@ jobs:
 #       run: dotnet test --no-build --verbosity normal
       
     - name: Publish NuGet
-      uses: rohith/publish-nuget@v2
+      uses: brandedoutcast/publish-nuget@v2.5.5
       with:
         PROJECT_FILE_PATH: .\Rich.HaoDanKu\Rich.HaoDanKu.csproj
         VERSION_FILE_PATH: .\common.props
